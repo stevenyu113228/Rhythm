@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'Zapfino';
+    src: url('./font/Zapfino.ttf') format('truetype'); /*Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5*/
+}  
+
+@font-face {
+    font-family: 'Myriad';
+    src: url('./font/MYRIADPRO-REGULAR.OTF') format('opentype');
+    /* url('./font/MyriadPro.ttf') format('truetype'); */
+}  
+
+@font-face {
+    font-family: 'month_font';
+    src:  url('./font/month_font.TTF') format('truetype'); /*Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5*/
+}  
+
+body {
+    font-family: 'Myriad';
+}
+
+.input:-internal-autofill-selected {
+    background-color: transparent;
+}
+.square_img {
+    width: 60px;
+    height: 60px;
+    border-radius: 49%;
+    /* border: 1px solid rgba(255,0,0,1.00); */
+}
+
+.custom_button {
+    background-image:url('./button.png'); 
+    background-color:rgba(00,00,00,0.5); 
+    background-size:cover; 
+    border:0px black solid;
+}
+
+.play_button {
+    background-image:url('./play-button.png'); 
+    background-size:cover; 
+    width: 25px;
+    height: 25px;
+    padding:0px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.pause_button {
+    background-image:url('./pause-button.png'); 
+    background-size:cover; 
+    width: 25px;
+    height: 25px;
+    padding:0px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.month_p {
+    font-family: 'month_font';
+    float:left;
+    font-size: 35px;
+}
+
+.month_p::first-letter {
+    font-family: 'Zapfino';
+    font-size: 120%;
+}
+
+.music_button_on {
+    background-color:rgba(255, 255, 255, 0.8); 
+    color: #f9f9fe; 
+    width:200px; 
+    height:40px; 
+    font-size:16px; 
+    margin-left:10%; 
+    margin-top:30px;
+}
+
+.music_button_off {
+    background-color:rgba(255, 255, 255, 0.8); 
+    width:200px; 
+    height:40px; 
+    font-size:16px; 
+    margin-left:10%; 
+    margin-top:30px;
+}
+
+.toggle.play, .toggle-on.play, .toggle-off.play { color: #516948; }
+.toggle.play .toggle-handle { color: #516948; }

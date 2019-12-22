@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOssuRa4aFZkJ6LoMxjD1dvKvT1Vk85JA"> </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="/static/typo/img/fav.png">
+	<!-- Author Meta -->
+	<meta name="author" content="Colorlib">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Typo</title>
+	<script>
+			function initialize(lat, lon, last_lat, last_lon, path) {
+				var last_position = {
+					lat: last_lat,
+					lng: last_lon
+				};
+	
+				var mapOptions = {
+					zoom: 17,
+					center: new google.maps.LatLng(lat, lon),
+					styles: [
+								{
+									"featureType": "all",
+									"elementType": "labels",
+									"stylers": [
+										{
+											"visibility": "on"
+										}
+									]
+								},
+								{
+									"featureType": "all",
+									"elementType": "labels.text.fill",
+									"stylers": [
+										{
+											"saturation": 36
+										},
+										{
+											"color": "#000000"
+										},
+										{
+											"lightness": 40
+										}
+									]
+								},
+								{
+									"featureType": "all",
+									"elementType": "labels.text.stroke",
+									"stylers": [
+										{
+											"visibility": "on"
+										},
+										{
+											"color": "#000000"
+										},
+										{
+											"lightness": 16
+										}
+									]
+								},
+								{
+									"featureType": "all",
+									"elementType": "labels.icon",
+									"stylers": [
+										{
+											"visibility": "off"
+										}
+									]
+								},
+								{
+									"featureType": "administrative",
+									"elementType": "geometry.fill",
+									"stylers": [
+										{
+											"color": "#000000"
+										},
+										{
+											"lightness": 20
+										}
+									]
+								},
+								{
+									"featureType": "administrative",
+									"elementType": "geometry.stroke",
+									"stylers": [
+										{
+											"color": "#000000"
+										},
+										{
+											"lightness": 17
+										},
+										{
+											"weight": 1.2
+										}
+									]
+								},
+								{
+									"featureType": "administrative.country",
+									"elementType": "labels.text.fill",
+									"stylers": [
+										{
+											"color": "#e5c163"
+										}
+									]
+								},
+								{
+									"featureType": "administrative.locality",
+									"elementType": "labels.text.fill",
+									"stylers": [
+										{
+											"color": "#c4c4c4"
+										}
+									]
+								},
+								{
+									"featureType": "administrative.neighborhood",
+									"elementType": "labels.text.fill",
+									"stylers": [
+										{
+											"color": "#e5c163"
+										}
+									]
+								},
+								{
+									"featureType": "landscape",
+									"elementType": "geometry",
+									"stylers": [
+										{
+											"color": "#000000"
+										},
+										{
+											"lightness": 20
+										}
+									]
+								},
+								{
+									"featureType": "poi",
+									"elementType": "geometry",
+									"stylers": [
+										{
+											"color": "#000000"
+										},
+										{
+											"lightness": 21
+										},
+										{
+											"visibility": "on"
+										}
+									]
+								},
+								{
+									"featureType": "poi.business",
+									"elementType": "geometry",
+									"stylers": [
+										{
+											"visibility": "on"
+										}
+									]
+								},
+								{
+									"featureType": "road.highway",
+									"elementType": "geometry.fill",
+									"stylers": [
+										{
+											"color": "#e5c163"
+										},
+										{
+											"lightness": "0"
+										}
+									]
+								},
+								{
+									"featureType": "road.highway",
+									"elementType": "geometry.stroke",
+									"stylers": [
+										{
+											"visibility": "off"
+										}
+									]
+								},
+								{
+									"featureType": "road.highway",
+									"elementType": "labels.text.fill",
+									"stylers": [
+										{
+											"color": "#ffffff"
+										}
+									]
+								},
+								{
+									"featureType": "road.highway",
+									"elementType": "labels.text.stroke",
+									"stylers": [
+										{
+											"color": "#e5c163"
+										}
+									]
+								},
+								{
+									"featureType": "road.arterial",
+									"elementType": "geometry",
+									"stylers": [
+										{
+											"color": "#000000"
+										},
+										{
+											"lightness": 18
+										}
+									]
+								},
+								{
+									"featureType": "road.arterial",
+									"elementType": "geometry.fill",
+									"stylers": [
+										{
+											"color": "#575757"
+										}
+									]
+								},
+								{
+									"featureType": "road.arterial",
+									"elementType": "labels.text.fill",
+									"stylers": [
+										{
+											"color": "#ffffff"
+										}
+									]
+								},
+								{
+									"featureType": "road.arterial",
+									"elementType": "labels.text.stroke",
+									"stylers": [
+										{
+											"color": "#2c2c2c"
+										}
+									]
+								},
+								{
+									"featureType": "road.local",
+									"elementType": "geometry",
+									"stylers": [
+										{
+											"color": "#000000"
+										},
+										{
+											"lightness": 16
+										}
+									]
+								},
+								{
+									"featureType": "road.local",
+									"elementType": "labels.text.fill",
+									"stylers": [
+										{
+											"color": "#999999"
+										}
+									]
+								},
+								{
+									"featureType": "transit",
+									"elementType": "geometry",
+									"stylers": [
+										{
+											"color": "#000000"
+										},
+										{
+											"lightness": 19
+										}
+									]
+								},
+								{
+									"featureType": "water",
+									"elementType": "geometry",
+									"stylers": [
+										{
+											"color": "#000000"
+										},
+										{
+											"lightness": 17
+										}
+									]
+								}
+							]
+				};
+	
+				var map = new google.maps.Map(document.getElementById('map-canvas'),
+					mapOptions);
+				var marker = new google.maps.Marker({
+					position: last_position,
+					map: map,
+					animation: google.maps.Animation.BOUNCE
+				});
+				var flightPath = new google.maps.Polyline({
+					path: path,
+					geodesic: true,
+					strokeColor: '#DC773A',
+					strokeOpacity: 1.0,
+					strokeWeight: 4
+				});
+	
+				flightPath.setMap(map);
+	
+			}
+	
+	
+			function get_data() {
+				let dateValue = document.getElementById("datepicker").value;
+				let formData = new FormData();
+				formData.append('date', dateValue);
+				// console.log(document.getElementById("datepicker").value);
+				var lat, lon;
+				fetch("./get_data", {
+					method: 'post',
+					body: formData,
+				})
+					.then(function (response) {
+						return response.json();
+					})
+					.then(function (myJson) {
+						// console.log(myJson);
+						// document.getElementById("demo").innerHTML = JSON.stringify(myJson);
+						
+						var path = [];
+						let lat = 0;
+						let lon = 0;
+						let num = 0;
+						for(var i=1;i < myJson.length;i++){
+							if(myJson[i].latitude != 0 && myJson[i].longitude != 0){
+								path.push({lat: myJson[i].latitude, lng: myJson[i].longitude})
+								lat += myJson[i].latitude;
+								lon += myJson[i].longitude;
+								num += 1;
+							}
+						}
+						if(num != 0){
+							lat /= num;
+							lon /= num;
+						}
+	
+	
+						for(var i=1;i < myJson.length;i++){
+							var last_lat = myJson[myJson.length - i].latitude;
+							var last_lon = myJson[myJson.length - i].longitude;
+							if(lat != 0 && lon != 0){
+								break;
+							}
+						}
+	
+	
+						let totalStep = 0;
+						// skip the header info
+						for (let i = 1;i < myJson.length;i++){
+							totalStep += myJson[i].step;
+						}
+	
+						document.getElementById("step").innerHTML = String(totalStep) ;
+	
+						// config.data.datasets.forEach(function(dataset) {
+						//     dataset.data = dataset.data.map(function() {
+						//         return myJson[0];
+						//     });
+						// });
+						Object.keys(myJson[0]).forEach(function(key) {
+							config.data.datasets[0].data[parseInt(key)] = myJson[0][key]
+	
+							// console.log(key, myJson[0][key]);
+						});
+						// console.log(window.myLine);
+	
+						console.log(lat);
+						console.log(lon);
+						window.myLine.update()
+						initialize(lat, lon, last_lat, last_lon, path);
+	
+	
+					});
+			}
+			$( function() {
+				$( "#datepicker" ).datepicker();
+			} );
+		
+			function randomScalingFactor(min, max) {
+				return Math.floor(Math.random() * max) + min;
+			};
+	
+			window.chartColors = {
+				red: 'rgb(255, 99, 132)',
+				orange: 'rgb(255, 159, 64)',
+				yellow: 'rgb(255, 205, 86)',
+				green: 'rgb(75, 192, 192)',
+				blue: 'rgb(54, 162, 235)',
+				purple: 'rgb(153, 102, 255)',
+				grey: 'rgb(201, 203, 207)'
+			};
+			const config = {
+				type: 'line',
+				data: {
+					labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+	
+					datasets: [{
+						label: 'Heart',
+						backgroundColor: window.chartColors.grey,
+						borderColor: window.chartColors.grey,
+						data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+						fill: false,
+					}]
+				},
+				options: {
+					responsive: true,
+					title: {
+						display: true,
+						text: 'Heart Rate Record Chart',
+						fontColor: 'white'
+					},
+					tooltips: {
+						mode: 'index',
+						intersect: false,
+						fontColor: 'white'
+					},
+					hover: {
+						mode: 'nearest',
+						intersect: true,
+						fontColor: 'white'
+					},
+					legend: {
+						labels: {
+							// This more specific font property overrides the global property
+							fontColor: 'white'
+						}
+					},
+					scaleFontColor : '#FFFFFF',
+					scales: {
+						xAxes: [{
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'Time',
+								fontColor: 'white'
+							},
+							ticks: {
+								fontColor: "#FFFFFF"
+							},
+							
+						}],
+						yAxes: [{
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'Heart Rate',
+								fontColor: 'white'
+							},
+							ticks: {
+								fontColor: "#FFFFFF"
+							},
+						}]
+					}
+				}
+			};
+	
+			window.onload = function() {
+				var ctx = document.getElementById('canvas').getContext('2d');
+				window.myLine = new Chart(ctx, config);
+			};
+		</script>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,500,600" rel="stylesheet">
+		<!--
+		CSS
+		============================================= -->
+		<link rel="stylesheet" href="/static/typo/css/linearicons.css">
+		<link rel="stylesheet" href="/static/typo/css/owl.carousel.css">
+		<link rel="stylesheet" href="/static/typo/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/typo/css/nice-select.css">
+		<link rel="stylesheet" href="/static/typo/css/magnific-popup.css">
+		<link rel="stylesheet" href="/static/typo/css/bootstrap.css">
+		<link rel="stylesheet" href="/static/typo/css/main.css">
+	</head>
+	<body>
+		<div class="main-wrapper-first">
+			<div class="hero-area relative">
+				<header>
+					<div class="container">
+						<div class="header-wrap">
+							<div class="header-top d-flex justify-content-between align-items-center">
+
+								<div class="main-menubar d-flex align-items-center">
+									
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</header>
+				<div class="banner-area" style="background-image:url(/static/bg2.jpg);">
+					<div class="overlay hero-overlay-bg"></div>
+					<div class="container">
+						<div class="row height align-items-center justify-content-center">
+							<div class="col-lg-12">
+								<div class="banner-content text-center">
+									<a href="/static/typo/index.html#1" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Record</span></a>
+									<a href="/static/typo/index.html#2" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Friends</span></a>
+									<a href="/static/typo/index.html#2" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Music</span></a>
+								
+								</div>
+								<p style = "float:left; color:#222222; font-size:25px; line-height:35px;">  Date  </p>
+								<input style="float:left; margin-left:10px; background-color: transparent; color:#222222; font-size:20px; height:35px;" type="text" id="datepicker">
+								<button class = "custom_button" style = "float:left; margin-left:10px; height:35px;" onClick="get_data()">Get Data</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main-wrapper">
+			<!-- Start About Top Area -->
+			<section class="about-top-area">
+				<div class="container-fluid" id='1'>
+					<div style="height:500px">
+						<div class="row h-100">
+								<div class="col-md-6">
+										<div id="map-canvas" ></div>
+								</div>
+								<div class="col-md-6" >
+										<canvas id="canvas"></canvas>
+
+								</div>
+						</div>
+					
+						<!--
+					<div class="row h-100 justify-content-start align-items-center">
+						<div class="col-md-6" style="position: absolute; height:40%;width:50%;background-color: rgba(66,66,66,0.7);">
+
+							<div id="map-canvas" ></div>
+						</div>
+						<div class="col-md-6">
+							<canvas id="canvas"></canvas>
+							<div style = "margin-top:20px;">
+									<div style="width:33%; float:left;">
+										<p style="text-align: center; font-size:30px; margin-bottom:0px;">8.73</p>
+										<p style="text-align: center;">Distance/km</p>
+									</div>
+									<div style="width:33%; float:left;">
+										<p style="text-align: center; font-size:30px; margin-bottom:0px;">45:02</p>
+										<p style="text-align: center;">Duration</p>
+									</div>
+									<div style="width:33%; float:left;">
+										<p style="text-align: center; font-size:30px; margin-bottom:0px;">8'50"</p>
+										<p style="text-align: center;">Avg. Pace</p>
+									</div>
+									<div style="width:33%; float:left;">
+										<p style="text-align: center; font-size:30px; margin-bottom:0px;">533</p>
+										<p style="text-align: center;">Est. Calories</p>
+									</div>
+									<div style="width:33%; float:left;">
+										<p id="step" style="text-align: center; font-size:30px; margin-bottom:0px;">1234</p>
+										<p style="text-align: center;">Step</p>
+									</div>
+									<div style="width:33%; float:left;">
+										<p style="text-align: center; font-size:30px; margin-bottom:0px;">165</p>
+										<p style="text-align: center;">Avg. Heart Rate</p>
+									</div>
+						</div>
+					</div> -->
+				</div>
+			</section>
+			<!-- End About Top Area -->
+			<!-- Start Feature Area -->
+			<section class="feature-area pt-90 pb-90">
+				<div class="container">
+					<div class="row h-100 justify-content-end align-items-center">
+
+						<div class="col-lg-4 col-md-4 single-feature">
+							<h2>Facts Why Inkjet Printing</h2>
+							<p>
+								Here, I focus on a range of items and features that we use in life without giving them a second thought. such as Coca Cola.
+							</p>
+						</div>
+						
+					</div>
+				</div>
+			</section>
+			<!-- End Feature Area -->
+			<!-- Start Offer Area -->
+			<section class="offer-area relative pt-90 pb-90">
+				<div class="container">
+					<div class="row h-100 justify-content-start align-items-center">
+						<div class="col-lg-3">
+							<div id="map-canvas" style="width:50%; height: 60%; position: absolute; background-color: rgba(66,66,66,0.7);"></div>
+						</div>
+						<div class="col-lg-4">
+								<canvas id="canvas"></canvas>
+								<div style = "margin-top:20px;">
+										<div style="width:33%; float:left;">
+											<p style="text-align: center; font-size:30px; margin-bottom:0px;">8.73</p>
+											<p style="text-align: center;">Distance/km</p>
+										</div>
+										<div style="width:33%; float:left;">
+											<p style="text-align: center; font-size:30px; margin-bottom:0px;">45:02</p>
+											<p style="text-align: center;">Duration</p>
+										</div>
+										<div style="width:33%; float:left;">
+											<p style="text-align: center; font-size:30px; margin-bottom:0px;">8'50"</p>
+											<p style="text-align: center;">Avg. Pace</p>
+										</div>
+										<div style="width:33%; float:left;">
+											<p style="text-align: center; font-size:30px; margin-bottom:0px;">533</p>
+											<p style="text-align: center;">Est. Calories</p>
+										</div>
+										<div style="width:33%; float:left;">
+											<p id="step" style="text-align: center; font-size:30px; margin-bottom:0px;">1234</p>
+											<p style="text-align: center;">Step</p>
+										</div>
+										<div style="width:33%; float:left;">
+											<p style="text-align: center; font-size:30px; margin-bottom:0px;">165</p>
+											<p style="text-align: center;">Avg. Heart Rate</p>
+										</div>
+						</div>
+						<div class="offer-desc col-lg-4">
+							<h3>Download Free Song For Ipod</h3>
+							<p>
+								LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create slimmer, more portable technology than we’ve ever had access to before.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End Offer Area -->
+			<!-- Start About Bottom Area -->
+			<section class="about-bottom-area">
+				<div class="container-fluid">
+					<div class="row h-100 justify-content-start align-items-center">
+						<div class="col-lg-6 about-left pt-30 pb-30">
+							<div class="single-desc">
+								<span class="icon lnr lnr-rocket"></span>
+								<h2>Powerful Performance</h2>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+								</p>
+								<button class="primary-btn hover d-inline-flex align-items-center"><span class="mr-10">Learn More</span><span class="lnr lnr-arrow-right"></span></button>
+							</div>
+						</div>
+						<div class="col-lg-6 about-right">
+							<div class="overlay overlay-bg"></div>
+				
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End About Bottom Area -->
+			<!-- Start Precess Area -->
+			<section class="process-area pt-90 pb-90">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 single-process">
+							<span class="icon lnr lnr-eye"></span>
+							<h2>Life Advice Looking Through</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+							</p>
+						</div>
+						<div class="col-lg-4 single-process">
+							<span class="icon lnr lnr-cog"></span>
+							<h2>Dealing With Technical</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+							</p>
+						</div>
+						<div class="col-lg-4 single-process">
+							<span class="icon lnr lnr-music-note"></span>
+							<h2>What Is Hdcp</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+							</p>
+						</div>
+						<div class="col-lg-4 single-process">
+							<span class="icon lnr lnr-magnifier"></span>
+							<h2>Finding Information Online</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+							</p>
+						</div>
+						<div class="col-lg-4 single-process">
+							<span class="icon lnr lnr-laptop"></span>
+							<h2>Sony Laptops Are Still Part</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+							</p>
+						</div>
+						<div class="col-lg-4 single-process">
+							<span class="icon lnr lnr-screen"></span>
+							<h2>Purchase Desktop Computers</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+							</p>
+						</div>
+						<div class="col-lg-4 single-process">
+							<span class="icon lnr lnr-printer"></span>
+							<h2>The Best Photo Printer</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+							</p>
+						</div>
+						<div class="col-lg-4 single-process">
+							<span class="icon lnr lnr-magic-wand"></span>
+							<h2>Fta Keys</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+							</p>
+						</div>
+						<div class="col-lg-4 single-process">
+							<span class="icon lnr lnr-camera-video"></span>
+							<h2>How Does An Lcd Screen Work</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End Precess Area -->
+			<!-- Start Newsletter Section -->
+			<section class="newsletter-area pt-60 pb-60">
+				<div class="container">
+					<div class="row justify-content-center align-items-center">
+						<div class="text-center">
+							<h3 class="text-white">Subscribe for our Newsletter</h3>
+							<p>We won’t send any kind of spam</p>
+							<div class="subcribe-form" id="mc_embed_signup">
+								<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscription relative">
+										<input name="EMAIL" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required="" type="email">
+										<div style="position: absolute; left: -5000px;">
+											<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+										</div>
+										<button class="primary-btn hover d-inline-flex align-items-center"><span class="mr-10">Get Started</span><span class="lnr lnr-arrow-right"></span></button>
+										<div class="info"></div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Start Newsletter Section -->
+			<footer class="section-gap footer-area">
+				<div class="container">
+					<div class="row pt-60 pb-60">
+						<div class="col-lg-3 col-sm-6">
+							<div class="single-footer-widget">
+								<h6 class="text-uppercase mb-20">Top Products</h6>
+								<ul class="footer-nav">
+									<li><a href="#">Managed Website</a></li>
+									<li><a href="#">Manage Reputation</a></li>
+									<li><a href="#">Power Tools</a></li>
+									<li><a href="#">Marketing Service</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-3 col-sm-6">
+							<div class="single-footer-widget">
+								<h6 class="text-uppercase mb-20">Navigation</h6>
+								<ul class="footer-nav">
+									<li><a href="#">Home</a></li>
+									<li><a href="#">Main Features</a></li>
+									<li><a href="#">Offered Services</a></li>
+									<li><a href="#">Latest Portfolio</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-3 col-sm-6">
+							<div class="single-footer-widget">
+								<h6 class="text-uppercase mb-20">Compare</h6>
+								<ul class="footer-nav">
+									<li><a href="#">Works &amp; Builders</a></li>
+									<li><a href="#">Works &amp; Wordpress</a></li>
+									<li><a href="#">Works &amp; Templates</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-sm-6">
+							<div class="single-footer-widget">
+								<h6 class="text-uppercase mb-20">About</h6>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi nam iusto ipsum error, ad expedita eveniet libero non magni, odit magnam. Fuga reiciendis iure neque, earum similique cum eligendi deleniti?
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
+						<p class="footer-text m-0">Copyright © 2017 All rights reserved   |   This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com">Colorlib</a></p>
+						<div class="footer-social d-flex align-items-center">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
+						</div>
+				</div>
+			</footer>
+		</div>
+		<script src="/static/typo/js/vendor/jquery-2.2.4.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+		<script src="/static/typo/js/vendor/bootstrap.min.js"></script>
+		<script src="/static/typo/js/jquery.ajaxchimp.min.js"></script>
+		<script src="/static/typo/js/owl.carousel.min.js"></script>
+		<script src="/static/typo/js/jquery.nice-select.min.js"></script>
+		<script src="/static/typo/js/jquery.magnific-popup.min.js"></script>
+		<script src="/static/typo/js/main.js"></script>
+	</body>
+</html>

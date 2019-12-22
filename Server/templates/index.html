@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+	<script src="https://maps.googleapis.com/maps/api/js?key=xxxxxxxxxxxxxxxxx"> </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="/static/typo/img/fav.png">
+	<!-- Author Meta -->
+	<meta name="author" content="Colorlib">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Rhythm</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+    <!-- <link href="./static/custom.css" rel="stylesheet"> -->
+    <link href="./static/temp_css.css" rel="stylesheet">
+    <script src="./static/table.js" charset="utf-8"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOssuRa4aFZkJ6LoMxjD1dvKvT1Vk85JA"> </script>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,500,600" rel="stylesheet">
+		<!--
+		CSS
+		============================================= -->
+		<link rel="stylesheet" href="/static/typo/css/linearicons.css">
+		<link rel="stylesheet" href="/static/typo/css/owl.carousel.css">
+		<link rel="stylesheet" href="/static/typo/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/typo/css/nice-select.css">
+		<link rel="stylesheet" href="/static/typo/css/magnific-popup.css">
+		<link rel="stylesheet" href="/static/typo/css/bootstrap.css">
+		<link rel="stylesheet" href="/static/typo/css/main.css">
+
+    <script>
+        function initialize(lat, lon, last_lat, last_lon, path, map_id) {
+            var last_position = {
+                lat: last_lat,
+                lng: last_lon
+            };
+
+            var mapOptions = {
+                zoom: 15,
+                center: new google.maps.LatLng(lat, lon),
+                styles: [
+                            {
+                                "featureType": "all",
+                                "elementType": "labels",
+                                "stylers": [
+                                    {
+                                        "visibility": "on"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "all",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "saturation": 36
+                                    },
+                                    {
+                                        "color": "#000000"
+                                    },
+                                    {
+                                        "lightness": 40
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "all",
+                                "elementType": "labels.text.stroke",
+                                "stylers": [
+                                    {
+                                        "visibility": "on"
+                                    },
+                                    {
+                                        "color": "#000000"
+                                    },
+                                    {
+                                        "lightness": 16
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "all",
+                                "elementType": "labels.icon",
+                                "stylers": [
+                                    {
+                                        "visibility": "off"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "administrative",
+                                "elementType": "geometry.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#000000"
+                                    },
+                                    {
+                                        "lightness": 20
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "administrative",
+                                "elementType": "geometry.stroke",
+                                "stylers": [
+                                    {
+                                        "color": "#000000"
+                                    },
+                                    {
+                                        "lightness": 17
+                                    },
+                                    {
+                                        "weight": 1.2
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "administrative.country",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#e5c163"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "administrative.locality",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#c4c4c4"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "administrative.neighborhood",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#e5c163"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "landscape",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#000000"
+                                    },
+                                    {
+                                        "lightness": 20
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#000000"
+                                    },
+                                    {
+                                        "lightness": 21
+                                    },
+                                    {
+                                        "visibility": "on"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi.business",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "visibility": "on"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.highway",
+                                "elementType": "geometry.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#e5c163"
+                                    },
+                                    {
+                                        "lightness": "0"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.highway",
+                                "elementType": "geometry.stroke",
+                                "stylers": [
+                                    {
+                                        "visibility": "off"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.highway",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#ffffff"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.highway",
+                                "elementType": "labels.text.stroke",
+                                "stylers": [
+                                    {
+                                        "color": "#e5c163"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.arterial",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#000000"
+                                    },
+                                    {
+                                        "lightness": 18
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.arterial",
+                                "elementType": "geometry.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#575757"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.arterial",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#ffffff"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.arterial",
+                                "elementType": "labels.text.stroke",
+                                "stylers": [
+                                    {
+                                        "color": "#2c2c2c"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.local",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#000000"
+                                    },
+                                    {
+                                        "lightness": 16
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.local",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#999999"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "transit",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#000000"
+                                    },
+                                    {
+                                        "lightness": 19
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "water",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#000000"
+                                    },
+                                    {
+                                        "lightness": 17
+                                    }
+                                ]
+                            }
+                        ]
+            };
+
+            var map = new google.maps.Map(document.getElementById(map_id),
+                mapOptions);
+            var marker = new google.maps.Marker({
+                position: last_position,
+                map: map,
+                animation: google.maps.Animation.BOUNCE
+            });
+            var flightPath = new google.maps.Polyline({
+                path: path,
+                geodesic: true,
+                strokeColor: '#DC773A',
+                strokeOpacity: 1.0,
+                strokeWeight: 4
+            });
+
+            flightPath.setMap(map);
+
+        }
+
+        var month = ['J an', 'F eb', 'M ar','A pr','M ay','J une','J ul','A ug' , 'S ep', 'O ct', 'N ov', 'D ec']
+
+        function get_today(){
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+            var yyyy = today.getFullYear();
+
+            if(dd < 10) {
+                dd = '0'+dd
+            } 
+
+            if(mm < 10) {
+                mm = '0'+mm
+            } 
+
+            today = mm + '/' + dd + '/' + yyyy;
+            return today;
+        }
+
+        function get_data(init) {
+            var dateValue = "";
+            if(init == true){
+                dateValue = get_today();
+            }
+            else{
+                dateValue = document.getElementById("datepicker").value;
+            }
+            let date = dateValue.split('/', 2);
+
+            document.getElementById("month_title").innerHTML = String(month[parseInt(date[0]) - 1]) + ' / ' + String(date[1]) ;
+
+            let formData = new FormData();
+            formData.append('date', dateValue);
+            console.log(document.getElementById("datepicker").value);
+            var lat, lon;
+            fetch("./get_data", {
+                method: 'post',
+                body: formData,
+            })
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (myJson) {
+                    // console.log(myJson);
+                    // document.getElementById("demo").innerHTML = JSON.stringify(myJson);
+                    
+                    var path = [];
+                    let lat = 0;
+                    let lon = 0;
+                    let num = 0;
+                    for(var i = 2;i < myJson.length;i++){
+                        if(myJson[i].latitude != 0 && myJson[i].longitude != 0){
+                            path.push({lat: myJson[i].latitude, lng: myJson[i].longitude})
+                            lat += myJson[i].latitude;
+                            lon += myJson[i].longitude;
+                            num += 1;
+                        }
+                    }
+                    if(num != 0){
+                        lat /= num;
+                        lon /= num;
+                    }
+
+
+                    for(var i=2;i < myJson.length;i++){
+                        var last_lat = myJson[myJson.length - i].latitude;
+                        var last_lon = myJson[myJson.length - i].longitude;
+                        if(lat != 0 && lon != 0){
+                            break;
+                        }
+                    }
+
+
+                    let totalStep = 0;
+                    // skip the header info
+                    for (let i = 2;i < myJson.length;i++){
+                        totalStep += myJson[i].step;
+                    }
+
+                    document.getElementById("step").innerHTML = String(totalStep) ;
+
+                    // config.data.datasets.forEach(function(dataset) {
+                    //     dataset.data = dataset.data.map(function() {
+                    //         return myJson[0];
+                    //     });
+                    // });
+                    Object.keys(myJson[0]).forEach(function(key) {
+                        config.data.datasets[0].data[parseInt(key)] = myJson[0][key]
+
+                        // console.log(key, myJson[0][key]);
+                    });
+                    // console.log(window.myLine);
+
+                    // console.log(lat);
+                    // console.log(lon);
+                    window.myLine.update()
+                    initialize(lat, lon, last_lat, last_lon, path, 'map-canvas');
+                });
+            setTimeout(function(){
+                get_data_by_date('05/14/2019', 'map-canvas-1');
+            },250);
+            setTimeout(function(){
+                get_data_by_date('05/15/2019', 'map-canvas-2');
+            },500);
+            setTimeout(function(){
+                get_data_by_date('05/16/2019', 'map-canvas-3');
+            },750);
+            setTimeout(function(){
+                get_data_by_date('05/17/2019', 'map-canvas-4');
+            },1000);
+            
+        }
+
+        
+        function get_data_by_date(dateValue, map_id) {
+            let formData = new FormData();
+            formData.append('date', dateValue);
+            console.log(dateValue);
+            console.log(map_id);
+            var lat, lon;
+            fetch("./get_data", {
+                method: 'post',
+                body: formData,
+            })
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (myJson) {
+                    var path = [];
+                    let lat = 0;
+                    let lon = 0;
+                    let num = 0;
+                    for(var i=2;i < myJson.length;i++){
+                        if(myJson[i].latitude != 0 && myJson[i].longitude != 0){
+                            path.push({lat: myJson[i].latitude, lng: myJson[i].longitude})
+                            lat += myJson[i].latitude;
+                            lon += myJson[i].longitude;
+                            num += 1;
+                        }
+                    }
+                    if(num != 0){
+                        lat /= num;
+                        lon /= num;
+                    }
+
+
+                    for(var i=2;i < myJson.length;i++){
+                        var last_lat = myJson[myJson.length - i].latitude;
+                        var last_lon = myJson[myJson.length - i].longitude;
+                        if(lat != 0 && lon != 0){
+                            break;
+                        }
+                    }
+
+                    Object.keys(myJson[0]).forEach(function(key) {
+                        config.data.datasets[0].data[parseInt(key)] = myJson[0][key]
+                    });
+                    
+                    initialize(lat, lon, last_lat, last_lon, path, map_id);
+                });
+        }
+
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+    
+        function randomScalingFactor(min, max) {
+            return Math.floor(Math.random() * max) + min;
+        };
+
+        window.chartColors = {
+            red: 'rgb(255, 99, 132)',
+            orange: '#DC773A',
+            yellow: 'rgb(255, 205, 86)',
+            green: 'rgb(75, 192, 192)',
+            blue: 'rgb(54, 162, 235)',
+            purple: 'rgb(153, 102, 255)',
+            grey: 'rgb(201, 203, 207)'
+        };
+        const config = {
+            type: 'line',
+            data: {
+                labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+
+                datasets: [{
+                    label: 'Heart',
+                    backgroundColor: window.chartColors.orange,
+                    borderColor: window.chartColors.orange,
+                    data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    fill: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Heart Rate Record Chart',
+                    fontColor: 'white'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                    fontColor: 'white'
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true,
+                    fontColor: 'white'
+                },
+                legend: {
+                    labels: {
+                        // This more specific font property overrides the global property
+                        fontColor: 'white'
+                    }
+                },
+                scaleFontColor : '#FFFFFF',
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Time',
+                            fontColor: 'white'
+                        },
+                        ticks: {
+                            fontColor: "#FFFFFF"
+                        },
+                        
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Heart Rate',
+                            fontColor: 'white'
+                        },
+                        ticks: {
+                            fontColor: "#FFFFFF"
+                        },
+                    }]
+                }
+            }
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            window.myLine = new Chart(ctx, config);
+            get_data(true);
+        };
+
+
+
+        function music_button_click(id) {
+            console.log(id);
+            if(id == 'music_level_1'){
+                $('#music_level_1').css({
+                    'color': "#f9f9fe",
+                });
+                $('#music_level_2').css({
+                    'color': "#222222",
+                });
+                $('#music_level_3').css({
+                    'color': "#222222",
+
+                });
+                $('#music_level_4').css({
+                    'color': "#222222",
+                });
+                document.getElementById("music_table").innerHTML = "";
+                document.getElementById("music_table").innerHTML = get_table("soft");
+            }
+            else if(id == 'music_level_2'){
+                $('#music_level_2').css({
+                    'color': "#f9f9fe",
+                });
+                $('#music_level_1').css({
+                    'color': "#222222",
+                });
+                $('#music_level_3').css({
+                    'color': "#222222",
+                });
+                $('#music_level_4').css({
+                    'color': "#222222",
+                });
+                document.getElementById("music_table").innerHTML = "";
+                document.getElementById("music_table").innerHTML = get_table("soft");
+            }
+            else if(id == 'music_level_3'){
+                $('#music_level_3').css({
+                    'color': "#f9f9fe",
+                });
+                $('#music_level_1').css({
+                    'color': "#222222",
+                });
+                $('#music_level_2').css({
+                    'color': "#222222",
+                });
+                $('#music_level_4').css({
+                    'color': "#222222",
+                });
+                document.getElementById("music_table").innerHTML = "";
+                document.getElementById("music_table").innerHTML = get_table("hard");
+            }
+            else{ 
+                $('#music_level_4').css({
+                    'color': "#f9f9fe",
+                });
+                $('#music_level_1').css({
+                    'color': "#222222",
+                });
+                $('#music_level_2').css({
+                    'color': "#222222",
+
+                });
+                $('#music_level_3').css({
+                    'color': "#222222",
+                });
+                document.getElementById("music_table").innerHTML = "";
+                document.getElementById("music_table").innerHTML = get_table("hard");
+            }
+        };
+    </script>
+</head>
+
+<body style="color:#FFFFFF;" >
+        <div class="main-wrapper-first" style="background-image:url('./static/bg4.jpg'); background-size:cover; background-position: center;">
+                <div class="hero-area relative">
+    
+                <div class="banner-area">
+                    <div class="overlay hero-overlay-bg"></div>
+                        <div class="container">
+                            <div class="row height align-items-center justify-content-center">
+                                <div class="col-lg-12">
+                                    <div class="banner-content text-center">
+                                        <a href="#Daily" class="primary-btn d-inline-flex align-items-center"style="left:-180px;"><span class="mr-10">Record</span></a>
+                                        <a href="#Friends" class="primary-btn d-inline-flex align-items-center"style="left:-180px;"><span class="mr-10">Friends</span></a>
+                                        <a href="#Music" class="primary-btn d-inline-flex align-items-center"style="left:-180px;"><span class="mr-10">Music</span></a>
+                                        <div style="position: absolute; top: 380px; width:300px; height:60px;  right:30px;">
+                                               
+                                        </div>
+                                        <div style = "padding:10px; float:right; position: absolute; right: 40px; top: 300px;">
+                                                <p style="float:right; line-height:80px; font-size: 20px; padding-left:20px; margin:0; font-family:'Zapfino'; color:#FFFFFF; ">Adelaide</p>
+                                                <img class="square_img" style="float:right;" src = "/static/user.jpg">
+                                        </div>
+                                        <div style = "padding:10px; float:right; position: absolute; right: 20px; top: 390px;">
+                                            <p style = "float:left; color:#FFFFFF; font-size:20px; line-height:40px;">  Date  </p>
+                                            <input style="float:left; margin-left:10px; background-color: transparent; color:#CCCCCC; font-size:20px; height:40px; text-align: center; border-radius: 20px;" type="text" id="datepicker">
+                                            <!-- <button class="custom_button" style = "float:left; margin-left:10px; height:35px;" onClick="get_data()">Get Data</button> -->
+                                            <a class="primary-btn d-inline-flex align-items-center"style="left: 10px;" onClick="get_data(false)"><span class="mr-10">Get Data</span></a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Daily" style = "background-color: rgba(33,33,33,0.85); height: 600px;">
+                            <div style="width:100%; height:100px; padding:5px; " >
+                                <p id="month_title" class = "month_p" style="line-height: 100px; margin-left: 60px;">J une / 14</p>
+                                <img style="float:left; width:40px; height:40px; margin-left:20px; top: 30px; position: relative;" src="./static/sun.png">
+                            </div>
+                            <div id="map-canvas" style="width:45%; height: 15%; margin-left:40px; position: absolute; background-color: rgba(66,66,66,0.7);"></div>
+                            <div style="width:48%; height:60%; float:right;margin-right:20px;">
+                                <canvas id="canvas"></canvas>
+                                <div style = "margin-top:50px;">
+                                    <div style="width:33%; float:left;">
+                                        <p style="text-align: center; font-size:30px; margin-bottom:0px;margin-top:10px;">8.73</p>
+                                        <p style="text-align: center;">Distance/km</p>
+                                    </div>
+                                    <div style="width:33%; float:left;">
+                                        <p style="text-align: center; font-size:30px; margin-bottom:0px;margin-top:10px;">45:02</p>
+                                        <p style="text-align: center;">Duration</p>
+                                    </div>
+                                    <div style="width:33%; float:left;">
+                                        <p style="text-align: center; font-size:30px; margin-bottom:0px;margin-top:10px;">8'50"</p>
+                                        <p style="text-align: center;">Avg. Pace</p>
+                                    </div>
+                                    <div style="width:33%; float:left;">
+                                        <p style="text-align: center; font-size:30px; margin-bottom:0px;margin-top:10px;">533</p>
+                                        <p style="text-align: center;">Est. Calories</p>
+                                    </div>
+                                    <div style="width:33%; float:left;">
+                                        <p id="step" style="text-align: center; font-size:30px; margin-bottom:0px;margin-top:10px;">1234</p>
+                                        <p style="text-align: center;">Step</p>
+                                    </div>
+                                    <div style="width:33%; float:left;">
+                                        <p style="text-align: center; font-size:30px; margin-bottom:0px;margin-top:10px;">165</p>
+                                        <p style="text-align: center;">Avg. Heart Rate</p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div id="Friends" style = "background-color:rgba(44,44,44,0.9);height: 900px; padding-top:50px; padding-bottom:50px;">
+                        <div style="width:50%; height:50%; float:left; padding:20px; padding-left:10%;">
+                            <div style="width:100%; height:15%;">
+                                <div style="width:10%; height:100%; float:left">
+                                    <img class="square_img" src = "/static/user1.jpg">
+                                </div>
+                                <div style="width:90%; height:100%; float:left;">
+                                    <p style="float:left; line-height:30px; font-size: 24px; margin-left:40px;">Byron</p>
+                                    <p style="float:right; line-height:30px; font-size: 18px; color:#999999;">05.16.2019 Thr.</p>
+                                    <p style="float:left; line-height:15px; font-size: 16px; margin-left:40px;">"Cool down to warm up. I ride a Citi Bike to the gym to teach—even in the winter."</p>
+                                </div>
+                            </div>
+                            <div style="padding-top:10%; width:100%; height:82%; text-align: center;">
+                                <div id="map-canvas-1" style="width:100%; height: 100%; background-color: rgba(66,66,66,0.7);"></div>
+                                <!-- <img style="width:100%; height:100%;" src="./static/map.jpg"> -->
+                            </div>
+                        </div>
+                        <div style="width:50%; height:50%; float:left; padding:20px; padding-right:10%;">
+                            <div style="width:100%; height:15%;">
+                                <div style="width:10%; height:100%; float:left">
+                                    <img class="square_img" src = "/static/user2.jpg">
+                                </div>
+                                <div style="width:90%; height:100%; float:left;">
+                                    <p style="float:left; line-height:30px; font-size: 24px; margin-left:40px;">Gordon</p>
+                                    <p style="float:right; line-height:30px; font-size: 18px; color:#999999;">05.15.2019 Wed.</p>
+                                    <p style="float:left; line-height:15px; font-size: 16px; margin-left:40px;">"Concentrate makes perfect, it always work~~~~~!"</p>
+                                </div>
+                            </div>
+                            <div style="padding-top:10%; width:100%; height:82%; text-align: center;">
+                                <div id="map-canvas-2" style="width:100%; height: 100%; background-color: rgba(66,66,66,0.7);"></div>
+                                <!-- <img style="width:100%; height:100%;" src="./static/map.jpg"> -->
+                            </div>
+                        </div>
+                        <div style="width:50%; height:50%; float:left; padding:20px; padding-left:10%;">
+                            <div style="width:100%; height:15%;">
+                                <div style="width:10%; height:100%; float:left">
+                                    <img class="square_img" src = "/static/user3.jpg">
+                                </div>
+                                <div style="width:90%; height:100%; float:left;">
+                                    <p style="float:left; line-height:30px; font-size: 24px; margin-left:40px;">Jane</p>
+                                    <p style="float:right; line-height:30px; font-size: 18px; color:#999999;">05.14.2019 Thu.</p>
+                                    <p style="float:left; line-height:15px; font-size: 16px; margin-left:40px;">"Just be careful not to eat too much before working out, especially hot exercise."</p>
+                                </div>
+                            </div>
+                            <div style="padding-top:10%; width:100%; height:82%; text-align: center;">
+                                <div id="map-canvas-3" style="width:100%; height: 100%; background-color: rgba(66,66,66,0.7);"></div>
+                                <!-- <img style="width:100%; height:100%;" src="./static/map.jpg"> -->
+                            </div>
+                        </div>
+                        <div style="width:50%; height:50%; float:left; padding:20px; padding-right:10%;">
+                            <div style="width:100%; height:15%;">
+                                <div style="width:10%; height:100%; float:left">
+                                    <img class="square_img" src = "/static/user4.jpg">
+                                </div>
+                                <div style="width:90%; height:100%; float:left;">
+                                    <p style="float:left; line-height:30px; font-size: 24px; margin-left:40px;">Kennedy</p>
+                                    <p style="float:right; line-height:30px; font-size: 18px; color:#999999;">05.13.2019 Mon.</p>
+                                    <p style="float:left; line-height:15px; font-size: 16px; margin-left:40px;">"it turns out to be a fantastic thing if you keep exercising."</p>
+                                </div>
+                            </div>
+                            <div style="padding-top:10%; width:100%; height:82%; text-align: center;">
+                                <div id="map-canvas-4" style="width:100%; height: 100%; background-color: rgba(66,66,66,0.7);"></div>
+                                <!-- <img style="width:100%; height:100%;" src="./static/map.jpg"> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Music" style = "padding: 50px; background-color:  rgba(22,22,22,0.9); height:800px; padding-top: 100px;">
+                            <div id ="music_table" style="width:75%; height:80%; float:left; background-color:  rgba(77,77,77,0.7); padding-top:20px;">
+                                <table style="left:5%; position:relative; width:90%; text-align: center; font-size:14px; ">
+                                    <tr style= "border-bottom: 1px solid;">
+                                        <td width = "150" height = "50">Music name</td>
+                                        <td width = "100" height = "50">Author name</td>
+                                        <td width = "100" height = "50"></td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid;">
+                                        <td width = "150" height = "50"><p style="line-height:40px; text-align: left; margin:0 0 0 0; padding-left:20px;">  Bobby Drake</p></td>
+                                        <td>BenJamin_Banger</td>
+                                        <!-- <td>2:43</td> -->
+                                        <!-- <td><div style="width:100%; height:100%;"><input type="button" value="" class="play_button" style="background-color:transparent; border:0px;"></td> -->
+                                        <!-- <td><input type="checkbox" checked data-toggle="toggle" data-on="<i class='fa fa-play'></i>" data-off="<i class='fa fa-pause'></i>"></td> -->
+                                        <td>
+                                            <div style="width:100%; height:100%;">
+                                                <audio src="./static/soft_music/BenJamin_Banger_-_01_-_Bobby_Drake.mp3" style="height:30px; margin-top:5px; padding:0px;" controls>
+                                                    <h3>遇到不支援的瀏覽器會出現這行字</h3>
+                                                </audio>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid;">
+                                        <td width = "150" height = "45"><p style="line-height:40px; text-align: left; margin:0 0 0 0; padding-left:20px;">  Kiss And Tell breezy bossa nova</p></td>
+                                        <td>Keshco</td>
+                                        <td>
+                                            <div style="width:100%; height:100%;">
+                                                <audio src="./static/soft_music/Keshco_-_18_-_Kiss_And_Tell_breezy_bossa_nova.mp3" style="height:30px; margin-top:5px; padding:0px;" controls>
+                                                    <h3>遇到不支援的瀏覽器會出現這行字</h3>
+                                                </audio>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid;">
+                                        <td width = "150" height = "45"><p style="line-height:40px; text-align: left; margin:0 0 0 0; padding-left:20px;">  Starling</p></td>
+                                        <td>Podington Bear</td>
+                                        <td>
+                                            <div style="width:100%; height:100%;">
+                                                <audio src="./static/soft_music/Podington_Bear_-_Starling.mp3" style="height:30px; margin-top:5px; padding:0px;" controls>
+                                                    <h3>遇到不支援的瀏覽器會出現這行字</h3>
+                                                </audio>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid;">
+                                        <td width = "150" height = "45"><p style="line-height:40px; text-align: left; margin:0 0 0 0; padding-left:20px;">  Dusk Cathedral</p></td>
+                                        <td>S Lee Rosevere</td>
+                                        <td>
+                                            <div style="width:100%; height:100%;">
+                                                <audio src="./static/soft_music/S_Lee_Rosevere_-_03_-_Dusk_Cathedral.mp3" style="height:30px; margin-top:5px; padding:0px;" controls>
+                                                    <h3>遇到不支援的瀏覽器會出現這行字</h3>
+                                                </audio>
+                                            </div>
+                                        </td>
+                                        </tr>
+                                </table>
+                            </div>
+                                <div style="width:20%; height:80%; float:left; margin-left:5%;">
+                                    <img style="float:right; width:30px; height:30px; margin-right:5%; margin-top:20px;" src = "/static/setting_icon.png">
+                                    </br>
+                                    </br>
+                                    </br>
+                                    <input id="music_level_1" type="button" onclick="music_button_click(this.id)" value="81~100 bpm" class="primary-btn d-inline-flex align-items-center" style="background-color:rgba(255, 255, 255, 0.8); color: #f9f9fe; width:200px; height:40px; font-size:16px; margin-top:30px;">
+                                    <input id="music_level_2" type="button" onclick="music_button_click(this.id)" value="101~120 bpm" class="primary-btn d-inline-flex align-items-center" style="background-color:rgba(255, 255, 255, 0.8); color: #222222; width:200px; height:40px; font-size:16px; margin-top:30px;">
+                                    <input id="music_level_3" type="button" onclick="music_button_click(this.id)" value="121~140 bpm" class="primary-btn d-inline-flex align-items-center" style="background-color:rgba(255, 255, 255, 0.8); color: #222222; width:200px; height:40px; font-size:16px; margin-top:30px;">
+                                    <input id="music_level_4" type="button" onclick="music_button_click(this.id)" value="141~160 bpm" class="primary-btn d-inline-flex align-items-center" style="background-color:rgba(255, 255, 255, 0.8); color: #222222; width:200px; height:40px; font-size:16px; margin-top:30px;">
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+        <!-- <input type="button" value="Daily Record" onclick="location.href='#Daily'" class = "custom_button" style="width:200px; height:90px; font-size:26px; float:left; left:20px; top:440px; position: absolute;">
+        <input type="button" value="Friends" onclick="location.href='#Friends'" class = "custom_button" style="width:200px; height:90px; font-size:26px; float:left; left:240px; top:440px; position: absolute;">
+        <input type="button" value="Music" onclick="location.href='#Music'" class = "custom_button" style="width:200px; height:90px; font-size:26px; float:left; left:460px; top:440px; position: absolute;"> -->
+    </div>
+
+    
+    
+
+    
+</body>
+
+
+</html>
